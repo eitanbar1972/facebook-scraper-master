@@ -1,0 +1,121 @@
+usage: facebook-scraper [-h] [-f FILENAME] [-p PAGES] [-s SLEEP] [-t TIMEOUT]
+                        [-g] [-v] [-c COOKIES] [--comments] [-r] [-rs]
+                        [--dump DUMP_LOCATION] [--encoding ENCODING]
+                        [-fmt {csv,json}] [-d DAYS_LIMIT] [-rf RESUME_FILE]
+                        [-ner] [-k KEYS] [-m MATCHING] [-nm NOT_MATCHING]
+                        [--extra-info] [--use-youtube-dl] [--profile]
+                        [--friends FRIENDS] [-ppp POSTS_PER_PAGE] [--source]   
+                        account
+
+Scrape Facebook public pages without an API key
+
+positional arguments:
+  account               Facebook account or group
+
+options:
+  -h, --help            show this help message and exit
+  -f FILENAME, --filename FILENAME
+                        Output filename
+  -p PAGES, --pages PAGES
+                        Number of pages to download
+  -s SLEEP, --sleep SLEEP
+                        How long to sleep for between posts
+  -t TIMEOUT, --timeout TIMEOUT
+                        How long to wait in seconds for Facebook servers       
+                        before aborting
+  -g, --group           Use group scraper
+  -v, --verbose         Enable logging
+  -c COOKIES, --cookies COOKIES
+                        Path to a cookies file
+  --comments            Extract comments
+  -r, --reactions       Extract reactions
+  -rs, --reactors       Extract reactors
+  --dump DUMP_LOCATION  Location where to save the HTML source of the posts    
+                        (useful for debugging)
+  --encoding ENCODING   Encoding for the output file
+  -fmt {csv,json}, --format {csv,json}
+                        What format to export as
+  -d DAYS_LIMIT, --days-limit DAYS_LIMIT
+                        Number of days to download
+  -rf RESUME_FILE, --resume-file RESUME_FILE
+                        Filename to store the last pagination URL in, for      
+                        resuming
+  -ner, --no-extra-requests
+                        Disable making extra requests (for things like high    
+                        quality image URLs)
+  -k KEYS, --keys KEYS  Comma separated list of which keys or columns to       
+                        return. This lets you filter to just your desired      
+                        outputs.
+  -m MATCHING, --matching MATCHING
+                        Filter to just posts matching regex expression
+  -nm NOT_MATCHING, --not-matching NOT_MATCHING
+                        Filter to just posts not matching regex expression     
+  --extra-info          Try to do an extra request to get the post reactions.  
+                        Default is False
+  --use-youtube-dl      Use Youtube-DL for (high-quality) video extraction.    
+                        You need to have youtube-dl installed on your
+                        environment. Default is False.
+  --profile             Extract an account's profile
+  --friends FRIENDS     When extracting a profile, how many friends to
+                        extract
+  -ppp POSTS_PER_PAGE, --posts-per-page POSTS_PER_PAGE
+                        Number of posts to fetch per page
+  --source              Include HTML source
+PS C:\Users\EitanBar\AppData\Local\Programs\Python\Python310\Projects\facebook-scraper-master>
+
+
+get_profile("Ori Ben Moshe", cookies="cookies.txt")
+
+WORK ON CLI NO OUTPUT
+for post in get_posts('nintendo', pages=1): print(post['text'][:50])
+
+
+
+ facebook-scraper --filename nintendo_page_posts.csv --pages 10 nintendo
+ 
+ 
+ 
+ 
+ 
+ from facebook_scraper import get_profile get_profile("Ori Ben Moshe")
+ 
+ 
+ from facebook_scraper import get_profile
+get_profile("Ori Ben Moshe")
+
+from facebook_scraper import get_profile
+get_profile("Yuval.Raz")
+
+
+from facebook_scraper import get_profile
+get_profile("eldad.fertouk")
+
+
+eldad.fertouk
+
+
+
+ 
+
+ 
+ 
+ for post in get_posts('eldad.fertouk', pages=5): print(post['text'][:50])
+ 
+ 
+ facebook-scraper --filename o.csv --pages 10 oren.cohen.773
+ 
+ facebook-scraper --filename a_page_posts.csv --pages 10 nintendo
+
+
+
+for post in get_posts('nintendo', pages=2): print(post['text'][:50]) 
+ 
+for post in get_posts('oren.cohen.773', pages=2): print(post['text'][:50])
+
+
+https://chrome.google.com/webstore/detail/get-cookiestxt/bgaddhkoddajcdgocldbbfleckgcbcid?hl=en 
+
+ 
+ 
+ 
+ 
