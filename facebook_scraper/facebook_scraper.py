@@ -14,7 +14,7 @@ import os
 from requests import RequestException
 from requests_html import HTMLSession
 
-from . import utils
+from facebook_scraper import utils
 from facebook_scraper.constants import (
     DEFAULT_PAGE_LIMIT,
     FB_BASE_URL,
@@ -22,7 +22,7 @@ from facebook_scraper.constants import (
     FB_W3_BASE_URL,
     FB_MBASIC_BASE_URL,
 )
-from .extractors import (
+from facebook_scraper.extractors import (
     extract_group_post,
     extract_post,
     extract_photo_post,
@@ -30,15 +30,15 @@ from .extractors import (
     PostExtractor,
     extract_hashtag_post,
 )
-from .fb_types import Post, Profile
-from .page_iterators import (
+from facebook_scraper.fb_types import Post, Profile
+from facebook_scraper.page_iterators import (
     iter_group_pages,
     iter_pages,
     iter_photos,
     iter_search_pages,
     iter_hashtag_pages,
 )
-from . import exceptions
+from facebook_scraper import exceptions
 
 
 logger = logging.getLogger(__name__)

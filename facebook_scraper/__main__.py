@@ -7,7 +7,7 @@ import locale
 import json
 import csv
 
-from . import enable_logging, write_posts_to_csv, get_profile
+from __init__ import enable_logging, write_posts_to_csv, get_profile
 
 
 def run():

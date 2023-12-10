@@ -10,11 +10,11 @@ from typing import Any, Dict, Iterator, Optional, Set, Union
 
 from requests.cookies import cookiejar_from_dict
 
-from .constants import DEFAULT_REQUESTS_TIMEOUT, DEFAULT_COOKIES_FILE_PATH
+from facebook_scraper.constants import DEFAULT_REQUESTS_TIMEOUT, DEFAULT_COOKIES_FILE_PATH
 from .facebook_scraper import FacebookScraper
 from .fb_types import Credentials, Post, RawPost, Profile
-from .utils import html_element_to_string, parse_cookie_file
-from . import exceptions
+from facebook_scraper.utils import html_element_to_string, parse_cookie_file
+from facebook_scraper import exceptions
 import traceback
 import time
 from datetime import datetime, timedelta
@@ -26,6 +26,8 @@ _scraper = FacebookScraper()
 
 
 def set_cookies(cookies):
+   ## cookies = "datr=j-I0ZX550D0mmye5MQJbeqSr; sb=keI0ZbiCcfrXKqV-KD7mUJ99; wd=1280x639; fr=1MW994le5eV2uUA9e.AWVzbDx7B2LAn3y6EdnkhE4Tf8k.BlYztP.U9.AAA.0.0.BlYztP.AWUVPE8uLXU; c_user=1592575481; xs=1%3AWjKt6_E1f0kSvQ%3A2%3A1700335126%3A-1%3A15164%3A%3AAcUfBpqnhJEUOJNVZ6FRbignjBUGuYZ-9cLn3fgzPg; presence=C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1701002064011%2C%22v%22%3A1%7D; dpr=1.5"
+    
     if isinstance(cookies, str):
         if cookies == "from_browser":
             try:
@@ -82,6 +84,8 @@ def get_profile(
     """
     _scraper.requests_kwargs['timeout'] = kwargs.pop('timeout', DEFAULT_REQUESTS_TIMEOUT)
     cookies = kwargs.pop('cookies', None)
+
+
     set_cookies(cookies)
     return _scraper.get_profile(account, **kwargs)
 
@@ -114,6 +118,7 @@ def get_friends(
     """
     _scraper.requests_kwargs['timeout'] = kwargs.pop('timeout', DEFAULT_REQUESTS_TIMEOUT)
     cookies = kwargs.pop('cookies', None)
+    ##cookies = "datr=j-I0ZX550D0mmye5MQJbeqSr; sb=keI0ZbiCcfrXKqV-KD7mUJ99; wd=1280x639; fr=1MW994le5eV2uUA9e.AWVzbDx7B2LAn3y6EdnkhE4Tf8k.BlYztP.U9.AAA.0.0.BlYztP.AWUVPE8uLXU; c_user=1592575481; xs=1%3AWjKt6_E1f0kSvQ%3A2%3A1700335126%3A-1%3A15164%3A%3AAcUfBpqnhJEUOJNVZ6FRbignjBUGuYZ-9cLn3fgzPg; presence=C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1701002064011%2C%22v%22%3A1%7D; dpr=1.5"
     set_cookies(cookies)
     return _scraper.get_friends(account, **kwargs)
 
